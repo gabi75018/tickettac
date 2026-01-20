@@ -2,35 +2,71 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>TicketTac - Voter</title>
-  <link rel="stylesheet" href="style.css">
+  <title>TicketTac — Voter pour le bot</title>
+  <link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
+<div class="app-shell">
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo-badge">🎟️</div>
+        <div>
+          <div class="logo-text-main">TicketTac</div>
+          <div class="logo-text-sub">Gestion de tickets ultra propre</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="commandes.html">Commandes</a>
+        <a href="support.html">Support</a>
+        <a href="vote.html">Voter</a>
+      </div>
+      <div class="nav-cta">
+        <div class="nav-pill">⭐ Merci pour votre soutien</div>
+      </div>
+    </div>
+  </header>
 
-<header>
-  <h2>TicketTac</h2>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="commandes.html">Commandes</a>
-    <a href="support.html">Support</a>
-    <a href="vote.html">Voter</a>
-  </nav>
-</header>
+  <main class="main">
+    <div class="page">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Voter pour TicketTac</div>
+          <div class="section-sub">Chaque vote aide le bot à gagner en visibilité et à rejoindre de nouveaux serveurs.</div>
+        </div>
 
-<div class="container">
-  <h1>Voter pour TicketTac</h1>
-  <p>Votre vote aide énormément le bot à gagner en visibilité.</p>
+        <div class="stack">
+          <div class="card">
+            <h3>⭐ Top.gg</h3>
+            <p>Plateforme principale pour découvrir des bots Discord. Un vote ici a un vrai impact.</p>
+            <div class="pills">
+              <a class="pill" href="https://top.gg/bot/TON_ID" target="_blank">Voter sur Top.gg</a>
+            </div>
+          </div>
 
-  <div class="card">
-    <h2>Plateformes de vote</h2>
-    <p><a class="btn btn-primary" href="https://top.gg/bot/TON_ID">Voter sur Top.gg</a></p>
-    <p><a class="btn btn-secondary" href="https://discordbotlist.com/bots/TON_ID">Voter sur DiscordBotList</a></p>
-  </div>
+          <div class="card">
+            <h3>📊 Autres plateformes</h3>
+            <p>Référencez TicketTac sur d’autres listes pour encore plus de visibilité.</p>
+            <div class="pills">
+              <a class="pill" href="https://discordbotlist.com/bots/TON_ID" target="_blank">DiscordBotList</a>
+              <a class="pill" href="#" target="_blank">Autre liste</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> TicketTac — Tous droits réservés.</span>
+      <span>Merci à tous ceux qui votent pour le bot.</span>
+    </div>
+  </footer>
 </div>
-
-<footer>
-  © 2026 TicketTac — Tous droits réservés.
-</footer>
-
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
