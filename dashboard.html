@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TicketTac — Dashboard</title>
+  <link rel="stylesheet" href="style.css?v=100">
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo-badge">🎟️</div>
+        <div>
+          <div class="logo-text-main">TicketTac</div>
+          <div class="logo-text-sub">Dashboard de configuration</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="commandes.html">Commandes</a>
+        <a href="support.html">Support</a>
+        <a href="vote.html">Voter</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+
+      <div class="nav-cta">
+        <div class="nav-pill">⚙️ Configuration</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="page">
+
+      <!-- SERVER SELECTOR -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Sélection du serveur</div>
+          <div class="section-sub">Choisissez le serveur que vous souhaitez configurer.</div>
+        </div>
+
+        <div class="card">
+          <label style="font-size:13px; color:var(--muted);">Serveur à gérer :</label>
+          <select style="margin-top:8px; width:100%; padding:10px; border-radius:10px; background:var(--glass); border:1px solid var(--border); color:var(--text);">
+            <option>Mon serveur principal</option>
+            <option>Serveur staff</option>
+            <option>Serveur secondaire</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- CONFIG PANELS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Configuration des tickets</div>
+          <div class="section-sub">Personnalisez entièrement le système de tickets.</div>
+        </div>
+
+        <div class="stack">
+
+          <!-- Titre & Description -->
+          <div class="card">
+            <h3>📝 Message de ticket</h3>
+            <p>Personnalisez le message envoyé lors de la création d’un ticket.</p>
+
+            <label style="font-size:12px;">Titre du ticket :</label>
+            <input type="text" placeholder="Ex : Besoin d'aide ?" style="margin-top:6px; width:100%; padding:10px; border-radius:10px; background:var(--glass); border:1px solid var(--border); color:var(--text);">
+
+            <label style="font-size:12px; margin-top:12px;">Description :</label>
+            <textarea placeholder="Décrivez le but du ticket..." style="margin-top:6px; width:100%; height:80px; padding:10px; border-radius:10px; background:var(--glass); border:1px solid var(--border); color:var(--text);"></textarea>
+          </div>
+
+          <!-- Boutons -->
+          <div class="card">
+            <h3>🔘 Boutons</h3>
+            <p>Ajoutez ou modifiez les boutons affichés dans le message de ticket.</p>
+
+            <div class="pills">
+              <span class="pill">Ajouter un bouton</span>
+              <span class="pill">Modifier</span>
+              <span class="pill">Supprimer</span>
+            </div>
+
+            <div style="margin-top:12px; font-size:12px; color:var(--muted);">
+              Boutons actuels :
+            </div>
+
+            <ul style="margin-top:6px; padding-left:18px; font-size:12px; color:var(--text2);">
+              <li>🎫 Ouvrir un ticket</li>
+              <li>❌ Fermer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stack" style="margin-top:16px;">
+
+          <!-- Salon -->
+          <div class="card">
+            <h3>🏠 Salon des tickets</h3>
+            <p>Choisissez où les tickets seront créés.</p>
+
+            <select style="margin-top:8px; width:100%; padding:10px; border-radius:10px; background:var(--glass); border:1px solid var(--border); color:var(--text);">
+              <option>#tickets</option>
+              <option>#support</option>
+              <option>#staff-tickets</option>
+            </select>
+          </div>
+
+          <!-- Rôles -->
+          <div class="card">
+            <h3>🛡️ Rôles staff</h3>
+            <p>Définissez qui peut gérer les tickets.</p>
+
+            <div class="pills">
+              <span class="pill">@Admin</span>
+              <span class="pill">@Modérateur</span>
+              <span class="pill">@Support</span>
+            </div>
+
+            <div class="pill" style="margin-top:10px;">Ajouter un rôle</div>
+          </div>
+        </div>
+
+        <div class="stack" style="margin-top:16px;">
+
+          <!-- Durée -->
+          <div class="card">
+            <h3>⏳ Durée des tickets</h3>
+            <p>Définissez une durée maximale avant fermeture automatique.</p>
+
+            <input type="range" min="1" max="72" value="24" style="width:100%; margin-top:12px;">
+            <div style="font-size:12px; color:var(--muted); margin-top:6px;">24 heures</div>
+          </div>
+
+          <!-- Stats -->
+          <div class="card">
+            <h3>📊 Statistiques du serveur</h3>
+            <p>Un aperçu rapide de l’activité des tickets.</p>
+
+            <ul style="margin-top:6px; padding-left:18px; font-size:12px; color:var(--text2);">
+              <li>Tickets ouverts : 128</li>
+              <li>Tickets fermés : 3 420</li>
+              <li>Temps moyen de réponse : 1m 42s</li>
+              <li>Staff actif : 12 membres</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> TicketTac — Dashboard</span>
+      <span>Développé par Lélythe</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
