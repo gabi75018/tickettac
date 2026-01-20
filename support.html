@@ -2,45 +2,85 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>TicketTac - Support</title>
-  <link rel="stylesheet" href="style.css">
+  <title>TicketTac — Support</title>
+  <link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
+<div class="app-shell">
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo-badge">🎟️</div>
+        <div>
+          <div class="logo-text-main">TicketTac</div>
+          <div class="logo-text-sub">Gestion de tickets ultra propre</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="commandes.html">Commandes</a>
+        <a href="support.html">Support</a>
+        <a href="vote.html">Voter</a>
+      </div>
+      <div class="nav-cta">
+        <div class="nav-pill">🛟 Support dédié</div>
+      </div>
+    </div>
+  </header>
 
-<header>
-  <h2>TicketTac</h2>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="commandes.html">Commandes</a>
-    <a href="support.html">Support</a>
-    <a href="vote.html">Voter</a>
-  </nav>
-</header>
+  <main class="main">
+    <div class="page">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Support & contact</div>
+          <div class="section-sub">Besoin d’aide, d’une fonctionnalité, d’un partenariat ? Tout passe par ici.</div>
+        </div>
 
-<div class="container">
-  <h1>Support & Contact</h1>
+        <div class="stack">
+          <div class="card">
+            <h3>💬 Serveur support</h3>
+            <p>Rejoignez le serveur officiel pour poser vos questions, signaler un bug ou proposer une idée.</p>
+            <div class="pills">
+              <a class="pill" href="https://discord.gg/TON_SERVEUR" target="_blank">Rejoindre le serveur support</a>
+            </div>
+          </div>
 
-  <div class="card">
-    <h2>Liens utiles</h2>
-    <p><a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=TON_ID&scope=bot&permissions=8">Ajouter le bot</a></p>
-    <p><a class="btn btn-secondary" href="https://discord.gg/TON_SERVEUR">Serveur support</a></p>
-  </div>
+          <div class="card">
+            <h3>🎟️ Ajouter TicketTac</h3>
+            <p>Invitez TicketTac sur votre serveur en quelques secondes.</p>
+            <div class="pills">
+              <a class="pill" href="https://discord.com/oauth2/authorize?client_id=TON_ID&scope=bot&permissions=8" target="_blank">Ajouter le bot</a>
+            </div>
+          </div>
+        </div>
 
-  <div class="card">
-    <h2>Nous contacter</h2>
-    <p>Email : <strong>tickettac.pro@gmail.com</strong></p>
-    <p>Réponse sous 24h.</p>
-  </div>
+        <div class="stack" style="margin-top:16px;">
+          <div class="card">
+            <h3>📨 Contact mail</h3>
+            <p>Pour les demandes plus sérieuses (partenariats, projets, etc.) :</p>
+            <p style="margin-top:6px;"><strong>tickettac.pro@gmail.com</strong></p>
+            <p style="font-size:11px; color:var(--muted); margin-top:4px;">Réponse généralement sous 24h.</p>
+          </div>
 
-  <div class="card">
-    <h2>Certification</h2>
-    <p>TicketTac respecte les normes Discord et vise la certification officielle.</p>
-  </div>
+          <div class="card">
+            <h3>✅ Certification & conformité</h3>
+            <p>TicketTac est développé en respectant les règles de Discord (sécurité, permissions, confidentialité).</p>
+            <p style="font-size:11px; color:var(--muted); margin-top:4px;">Objectif : obtenir la certification officielle Discord.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> TicketTac — Tous droits réservés.</span>
+      <span>Support prioritaire pour les serveurs actifs.</span>
+    </div>
+  </footer>
 </div>
-
-<footer>
-  © 2026 TicketTac — Tous droits réservés.
-</footer>
-
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
