@@ -1,3 +1,7 @@
+/* ========================= */
+/*      VARIABLES GLOBALES   */
+/* ========================= */
+
 :root {
   --bg: #07101d;
   --bg2: #0d1b2e;
@@ -9,12 +13,42 @@
   --text2: #a9c4ff;
 }
 
+/* ========================= */
+/*      ANIMATIONS GLOBALES  */
+/* ========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(76,141,255,0.3); }
+  50% { box-shadow: 0 0 20px rgba(76,141,255,0.6); }
+  100% { box-shadow: 0 0 10px rgba(76,141,255,0.3); }
+}
+
+@keyframes cardFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========================= */
+/*      GLOBAL STYLE         */
+/* ========================= */
+
 body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
   background: radial-gradient(circle at top, #0f1f38, #07101d 60%);
   color: var(--text);
+  animation: fadeIn 0.8s ease-out;
 }
+
+/* ========================= */
+/*      HEADER PREMIUM       */
+/* ========================= */
 
 header {
   backdrop-filter: blur(12px);
@@ -26,46 +60,69 @@ header {
   align-items: center;
   position: sticky;
   top: 0;
+  animation: fadeIn 1s ease-out;
 }
 
 header h2 {
   margin: 0;
   font-weight: 700;
   color: var(--blue-light);
+  transition: 0.3s;
 }
+
+header h2:hover {
+  color: white;
+  text-shadow: 0 0 10px var(--blue-light);
+}
+
+/* ========================= */
+/*      NAVIGATION           */
+/* ========================= */
 
 nav a {
   margin-left: 25px;
   color: var(--text2);
   text-decoration: none;
   font-weight: 500;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 nav a:hover {
   color: var(--blue-light);
+  text-shadow: 0 0 8px var(--blue-light);
 }
+
+/* ========================= */
+/*      CONTAINER            */
+/* ========================= */
 
 .container {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px;
+  animation: fadeIn 1s ease-out;
 }
+
+/* ========================= */
+/*      TITRES               */
+/* ========================= */
 
 h1 {
   font-size: 36px;
   font-weight: 800;
   color: var(--blue-light);
+  text-shadow: 0 0 12px rgba(76,141,255,0.4);
+  animation: fadeIn 1s ease-out;
 }
 
 h2 {
   color: var(--blue-light);
+  text-shadow: 0 0 8px rgba(76,141,255,0.3);
 }
 
-p {
-  color: var(--text2);
-  line-height: 1.6;
-}
+/* ========================= */
+/*      BOUTONS PREMIUM      */
+/* ========================= */
 
 .btn {
   display: inline-block;
@@ -74,18 +131,18 @@ p {
   text-decoration: none;
   font-weight: 600;
   margin-right: 10px;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .btn-primary {
   background: var(--blue);
   color: white;
-  box-shadow: 0 0 18px rgba(76, 141, 255, 0.4);
+  animation: glowPulse 2.5s infinite ease-in-out;
 }
 
 .btn-primary:hover {
   background: var(--blue-light);
-  box-shadow: 0 0 25px rgba(76, 141, 255, 0.6);
+  transform: translateY(-3px);
 }
 
 .btn-secondary {
@@ -97,7 +154,12 @@ p {
 .btn-secondary:hover {
   border-color: var(--blue-light);
   color: var(--blue-light);
+  transform: translateY(-3px);
 }
+
+/* ========================= */
+/*      CARTES GLASS         */
+/* ========================= */
 
 .card {
   background: var(--glass);
@@ -106,16 +168,18 @@ p {
   border-radius: 14px;
   margin-top: 25px;
   backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-out, cardFloat 4s infinite ease-in-out;
 }
 
-ul li {
-  margin-bottom: 8px;
-}
+/* ========================= */
+/*      TABLEAU COMMANDES    */
+/* ========================= */
 
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 25px;
+  animation: fadeIn 1s ease-out;
 }
 
 .table th {
@@ -130,10 +194,15 @@ ul li {
   color: var(--text2);
 }
 
+/* ========================= */
+/*      FOOTER               */
+/* ========================= */
+
 footer {
   text-align: center;
   padding: 30px;
   color: var(--text2);
   margin-top: 40px;
   border-top: 1px solid var(--glass-border);
+  animation: fadeIn 1s ease-out;
 }
