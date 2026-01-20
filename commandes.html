@@ -2,38 +2,72 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>TicketTac - Commandes</title>
-  <link rel="stylesheet" href="style.css">
+  <title>TicketTac — Commandes</title>
+  <link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
+<div class="app-shell">
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo-badge">🎟️</div>
+        <div>
+          <div class="logo-text-main">TicketTac</div>
+          <div class="logo-text-sub">Gestion de tickets ultra propre</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="commandes.html">Commandes</a>
+        <a href="support.html">Support</a>
+        <a href="vote.html">Voter</a>
+      </div>
+      <div class="nav-cta">
+        <div class="nav-pill">📘 Documentation commandes</div>
+      </div>
+    </div>
+  </header>
 
-<header>
-  <h2>TicketTac</h2>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="commandes.html">Commandes</a>
-    <a href="support.html">Support</a>
-    <a href="vote.html">Voter</a>
-  </nav>
-</header>
+  <main class="main">
+    <div class="page">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Liste des commandes</div>
+          <div class="section-sub">Complète ce tableau avec toutes les commandes de TicketTac.</div>
+        </div>
 
-<div class="container">
-  <h1>Liste des commandes</h1>
-  <p>Complète le tableau ci-dessous avec tes commandes.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <tr>
+              <th>Nom de la commande</th>
+              <th>Trigger</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
 
-  <table class="table">
-    <tr>
-      <th>Nom de la commande</th>
-      <th>Trigger</th>
-      <th>Description</th>
-    </tr>
-    <tr><td></td><td></td><td></td></tr>
-  </table>
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> TicketTac — Tous droits réservés.</span>
+      <span>Commandes mises à jour régulièrement.</span>
+    </div>
+  </footer>
 </div>
-
-<footer>
-  © 2026 TicketTac — Tous droits réservés.
-</footer>
-
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
