@@ -1,463 +1,154 @@
-:root {
-  --bg: #020617;
-  --bg-alt: #02091a;
-  --panel: rgba(15,23,42,0.9);
-  --glass: rgba(15,23,42,0.75);
-  --border: rgba(148,163,184,0.35);
-  --accent: #4f8bff;
-  --accent-soft: rgba(79,139,255,0.18);
-  --accent-strong: #7aa8ff;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --danger: #fb7185;
-  --success: #22c55e;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(79,139,255,0.25), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(15,23,42,1), #020617 70%);
-  color: var(--text);
-  min-height: 100vh;
-}
-
-/* ========= Layout global ========= */
-
-.app-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main {
-  flex: 1;
-}
-
-/* ========= Header / Nav ========= */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to right, rgba(2,6,23,0.96), rgba(15,23,42,0.9));
-  border-bottom: 1px solid rgba(15,23,42,1);
-  box-shadow: 0 18px 45px rgba(15,23,42,0.9);
-}
-
-.navbar {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
-  background: radial-gradient(circle at top, #4f8bff, #1d4ed8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 0 22px rgba(79,139,255,0.7);
-}
-
-.logo-text-main {
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  font-size: 15px;
-}
-
-.logo-text-sub {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 13px;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 3px;
-  transition: color 0.18s ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-  transition: width 0.18s ease;
-}
-
-.nav-links a:hover {
-  color: var(--text);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-cta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.nav-pill {
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.4);
-  color: var(--muted);
-}
-
-/* ========= Boutons ========= */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: white;
-  box-shadow: 0 14px 35px rgba(79,139,255,0.55);
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 45px rgba(79,139,255,0.7);
-}
-
-.btn-ghost {
-  background: rgba(15,23,42,0.9);
-  color: var(--text);
-  border: 1px solid rgba(148,163,184,0.4);
-}
-
-.btn-ghost:hover {
-  border-color: var(--accent-strong);
-  color: var(--accent-strong);
-}
-
-/* ========= Conteneur ========= */
-
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 26px 18px 40px;
-}
-
-/* ========= Hero Accueil ========= */
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.4fr);
-  gap: 26px;
-  align-items: center;
-  margin-bottom: 34px;
-}
-
-.hero-kicker {
-  font-size: 11px;
-  color: var(--muted);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.4);
-  background: rgba(15,23,42,0.9);
-  margin-bottom: 10px;
-}
-
-.hero-kicker span {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--success);
-  box-shadow: 0 0 10px rgba(34,197,94,0.8);
-}
-
-.hero-title {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.hero-title span {
-  background: linear-gradient(135deg, #60a5fa, #a855f7);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero-sub {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.hero-note {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.hero-panel {
-  background:
-    radial-gradient(circle at top left, rgba(79,139,255,0.35), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(15,23,42,0.95), #020617);
-  border-radius: 18px;
-  padding: 18px 18px 14px;
-  border: 1px solid rgba(148,163,184,0.4);
-  box-shadow: 0 20px 55px rgba(15,23,42,0.95);
-  font-size: 12px;
-}
-
-.hero-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.hero-panel-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.hero-chip {
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(15,23,42,0.9);
-  border: 1px solid rgba(148,163,184,0.4);
-  color: var(--muted);
-}
-
-.hero-panel-body {
-  background: rgba(15,23,42,0.96);
-  border-radius: 12px;
-  padding: 10px 12px;
-  border: 1px solid rgba(37,99,235,0.8);
-}
-
-.hero-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.hero-label {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.hero-value {
-  font-size: 12px;
-}
-
-.hero-panel-footer {
-  margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* ========= Sections / cartes ========= */
-
-.section {
-  margin-bottom: 32px;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.section-sub {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.card {
-  background: var(--glass);
-  border-radius: 14px;
-  padding: 14px;
-  border: 1px solid var(--border);
-  font-size: 13px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.9);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-soft);
-  box-shadow: 0 22px 55px rgba(15,23,42,1);
-}
-
-.card h3 {
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.pill {
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(55,65,81,0.9);
-  background: rgba(15,23,42,0.95);
-  color: var(--muted);
-}
-
-/* ========= Tableau commandes ========= */
-
-.table-wrap {
-  background: var(--glass);
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  padding: 16px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.9);
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-.table th {
-  text-align: left;
-  padding: 10px;
-  background: rgba(15,23,42,0.98);
-  border-bottom: 1px solid rgba(55,65,81,0.9);
-  color: var(--text);
-}
-
-.table td {
-  padding: 9px 10px;
-  border-bottom: 1px solid rgba(31,41,55,0.9);
-  color: var(--muted);
-}
-
-/* ========= Support / Vote ========= */
-
-.stack {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-/* ========= Footer ========= */
-
-footer {
-  border-top: 1px solid rgba(15,23,42,1);
-  background: rgba(2,6,23,0.98);
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 18px 18px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* ========= Responsive ========= */
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .hero-panel {
-    order: -1;
-  }
-  .grid-3 {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .stack {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .navbar {
-    padding-inline: 14px;
-  }
-  .nav-links {
-    display: none;
-  }
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TicketTac — Bot de tickets Discord</title>
+  <link rel="stylesheet" href="style.css?v=100">
+</head>
+<body>
+<div class="app-shell">
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="logo-badge">🎟️</div>
+        <div>
+          <div class="logo-text-main">TicketTac</div>
+          <div class="logo-text-sub">Gestion de tickets ultra propre</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="commandes.html">Commandes</a>
+        <a href="support.html">Support</a>
+        <a href="vote.html">Voter</a>
+      </div>
+      <div class="nav-cta">
+        <div class="nav-pill">🟢 En ligne 24/7</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page">
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">
+            <span></span> Bot de tickets pensé pour les serveurs sérieux
+          </div>
+          <div class="hero-title">
+            Le bot qui rend vos <span>tickets clairs, rapides et propres</span>.
+          </div>
+          <p class="hero-sub">
+            TicketTac centralise toutes vos demandes : support, staff, partenariats, signalements…  
+            Un système de tickets lisible, organisé, avec logs, permissions intelligentes et une expérience fluide pour vos membres.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=TON_ID&scope=bot&permissions=8" target="_blank">
+              🚀 Ajouter TicketTac
+            </a>
+            <a class="btn btn-ghost" href="https://discord.gg/TON_SERVEUR" target="_blank">
+              💬 Rejoindre le serveur support
+            </a>
+          </div>
+          <div class="hero-note">
+            Aucun dashboard compliqué. Tout se configure directement sur Discord, avec des commandes claires.
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="hero-panel-header">
+            <div class="hero-panel-title">
+              <span>🎟️</span> Aperçu en temps réel
+            </div>
+            <div class="hero-chip">
+              <span style="color:var(--success);">●</span> Stable & monitoré
+            </div>
+          </div>
+          <div class="hero-panel-body">
+            <div class="hero-row">
+              <span class="hero-label">Serveurs actifs</span>
+              <span class="hero-value">+120</span>
+            </div>
+            <div class="hero-row">
+              <span class="hero-label">Tickets gérés</span>
+              <span class="hero-value">+32 000</span>
+            </div>
+            <div class="hero-row">
+              <span class="hero-label">Temps moyen de création</span>
+              <span class="hero-value">~0.4 s</span>
+            </div>
+          </div>
+          <div class="hero-panel-footer">
+            <span>Logs détaillés, catégories, staff dédié.</span>
+            <span>Mis à jour régulièrement.</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Fonctionnalités principales</div>
+          <div class="section-sub">Tout ce qu’il faut pour un système de tickets propre et efficace.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>🧩 Tickets ultra lisibles</h3>
+            <p>Chaque ticket est créé dans un salon dédié, avec un message clair, les bonnes mentions et un suivi propre.</p>
+            <div class="pills">
+              <span class="pill">Catégories personnalisées</span>
+              <span class="pill">Mentions automatiques</span>
+              <span class="pill">Fermeture propre</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>📚 Logs & historique</h3>
+            <p>Gardez une trace de tout : ouverture, fermeture, staff impliqué, raison, temps de réponse.</p>
+            <div class="pills">
+              <span class="pill">Logs centralisés</span>
+              <span class="pill">Historique staff</span>
+              <span class="pill">Audit simple</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>🛡️ Permissions intelligentes</h3>
+            <p>Seuls les bons rôles voient les bons tickets. Le reste du serveur reste propre et lisible.</p>
+            <div class="pills">
+              <span class="pill">Rôles staff</span>
+              <span class="pill">Accès privé</span>
+              <span class="pill">Anti-spam</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="section-title">Dernière mise à jour</div>
+          <div class="section-sub">TicketTac évolue en continu pour rester simple, rapide et fiable.</div>
+        </div>
+        <div class="card">
+          <p><strong>Version :</strong> 1.4.2</p>
+          <p><strong>Changements :</strong></p>
+          <ul style="margin-top:6px; font-size:12px; color:var(--muted); padding-left:18px;">
+            <li>Refonte de l’embed de création de ticket pour plus de clarté.</li>
+            <li>Logs plus détaillés (staff, raison, durée, horodatage).</li>
+            <li>Optimisation des permissions pour éviter les erreurs de configuration.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> TicketTac — Tous droits réservés.</span>
+      <span>Non affilié à Discord Inc.</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
