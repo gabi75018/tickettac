@@ -2,471 +2,52 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Ton Bot Discord</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --bg: #0f172a;
-      --bg-alt: #020617;
-      --accent: #5865F2;
-      --accent-soft: rgba(88,101,242,0.15);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --card: #111827;
-      --danger: #f97373;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #5865F2, #8b5cf6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 20px;
-    }
-    .logo-text {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-    nav {
-      display: flex;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    nav a:hover { color: var(--text); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 48px;
-    }
-    .hero-title {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .hero-title span {
-      background: linear-gradient(135deg, #60a5fa, #a855f7);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .hero-sub {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-      font-size: 12px;
-    }
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.1s ease;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 12px 30px rgba(88,101,242,0.35);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(88,101,242,0.45);
-    }
-    .btn-ghost {
-      background: rgba(15,23,42,0.9);
-      color: var(--text);
-      border: 1px solid rgba(148,163,184,0.4);
-    }
-    .btn-ghost:hover {
-      background: rgba(15,23,42,1);
-    }
-    .hero-note {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, rgba(88,101,242,0.25), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(8,47,73,0.9), #020617);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      border: 1px solid rgba(148,163,184,0.35);
-      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
-      font-size: 13px;
-    }
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    .hero-card-title {
-      font-size: 13px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .status-pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 11px;
-      color: var(--muted);
-    }
-    .hero-card-body {
-      background: rgba(15,23,42,0.9);
-      border-radius: 12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(30,64,175,0.7);
-    }
-    .hero-card-line {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-    .hero-card-label {
-      color: var(--muted);
-      font-size: 11px;
-    }
-    .hero-card-value {
-      font-size: 12px;
-    }
-    .hero-card-footer {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-    .section-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .card {
-      background: rgba(15,23,42,0.95);
-      border-radius: 14px;
-      padding: 14px;
-      border: 1px solid rgba(31,41,55,0.9);
-      font-size: 13px;
-    }
-    .card h3 {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-    .card p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .pill {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(55,65,81,0.9);
-      color: var(--muted);
-    }
-
-    .commands {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      font-size: 13px;
-    }
-    .cmd {
-      background: rgba(15,23,42,0.95);
-      border-radius: 10px;
-      padding: 10px 12px;
-      border: 1px solid rgba(31,41,55,0.9);
-    }
-    .cmd-name {
-      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      margin-bottom: 4px;
-      color: #e5e7eb;
-    }
-    .cmd-desc {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid rgba(31,41,55,0.9);
-      padding-top: 16px;
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    @media (max-width: 800px) {
-      header { flex-direction: column; align-items: flex-start; gap: 10px; }
-      nav { font-size: 13px; }
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero-card { order: -1; }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .commands {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+  <title>TicketTac - Accueil</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="logo">
-        <div class="logo-icon">B</div>
-        <div class="logo-text">Ton Bot Discord</div>
-      </div>
-      <nav>
-        <a href="#features">Fonctionnalités</a>
-        <a href="#commands">Commandes</a>
-        <a href="#support">Support</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="hero-title">
-            Le bot Discord qui <span>simplifie ton serveur</span>.
-          </div>
-          <p class="hero-sub">
-            Modération, logs, messages de bienvenue, niveaux, utilitaires…  
-            Tout ce qu’il faut pour un serveur propre, actif et automatisé.
-          </p>
+<header>
+  <h2>TicketTac</h2>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="commandes.html">Commandes</a>
+    <a href="support.html">Support</a>
+    <a href="vote.html">Voter</a>
+  </nav>
+</header>
 
-          <div class="hero-badges">
-            <div class="badge">
-              <span class="badge-dot"></span>
-              En ligne 24/7
-            </div>
-            <div class="badge">
-              ⚙️ Configuration simple
-            </div>
-            <div class="badge">
-              🛡️ Pensé pour la modération
-            </div>
-          </div>
+<div class="container">
+  <h1>TicketTac — Le bot qui gère vos tickets automatiquement</h1>
+  <p>
+    TicketTac est un bot Discord conçu pour gérer vos tickets de manière simple, rapide et totalement automatisée.
+    Il organise les demandes, assigne les rôles, crée des salons privés, enregistre les logs et améliore l’expérience
+    de support sur votre serveur.
+  </p>
 
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=TON_ID&scope=bot&permissions=8" target="_blank">
-              🚀 Inviter le bot
-            </a>
-            <a class="btn btn-ghost" href="https://discord.gg/TON_SERVEUR" target="_blank">
-              💬 Rejoindre le serveur support
-            </a>
-          </div>
-          <div class="hero-note">
-            Aucun dashboard compliqué. Tout se fait directement sur Discord avec des commandes claires.
-          </div>
-        </div>
+  <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=TON_ID&scope=bot&permissions=8">Ajouter le bot</a>
+  <a class="btn btn-secondary" href="https://discord.gg/TON_SERVEUR">Serveur support</a>
 
-        <aside class="hero-card">
-          <div class="hero-card-header">
-            <div class="hero-card-title">
-              <span style="font-size: 18px;">🛠️</span> Aperçu du bot
-            </div>
-            <div class="status-pill">
-              <span style="color:#22c55e;">●</span> En ligne
-            </div>
-          </div>
-          <div class="hero-card-body">
-            <div class="hero-card-line">
-              <span class="hero-card-label">Serveurs</span>
-              <span class="hero-card-value">+120</span>
-            </div>
-            <div class="hero-card-line">
-              <span class="hero-card-label">Utilisateurs</span>
-              <span class="hero-card-value">+15 000</span>
-            </div>
-            <div class="hero-card-line">
-              <span class="hero-card-label">Latence moyenne</span>
-              <span class="hero-card-value">~35 ms</span>
-            </div>
-          </div>
-          <div class="hero-card-footer">
-            <span>Logs, modération, auto-rôles, niveaux…</span>
-            <span>Mis à jour régulièrement</span>
-          </div>
-        </aside>
-      </section>
-
-      <section id="features">
-        <h2 class="section-title">Fonctionnalités principales</h2>
-        <p class="section-sub">
-          Un bot pensé pour les serveurs qui veulent être propres, organisés et agréables à utiliser.
-        </p>
-        <div class="grid">
-          <div class="card">
-            <h3>🛡️ Modération intelligente</h3>
-            <p>Kick, ban, mute, warn, purge… avec logs automatiques pour garder un historique clair.</p>
-            <div class="pill-row">
-              <span class="pill">Logs de sanctions</span>
-              <span class="pill">Anti-spam</span>
-              <span class="pill">Purge de messages</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>👋 Messages de bienvenue</h3>
-            <p>Messages de bienvenue personnalisés, avec mention automatique et possibilité d’envoyer en MP.</p>
-            <div class="pill-row">
-              <span class="pill">Embed personnalisés</span>
-              <span class="pill">Auto-rôles</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3>📊 Système de niveaux</h3>
-            <p>Un système de niveaux simple pour récompenser les membres actifs et dynamiser ton serveur.</p>
-            <div class="pill-row">
-              <span class="pill">XP automatique</span>
-              <span class="pill">Rôles par niveau</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="commands">
-        <h2 class="section-title">Commandes utiles</h2>
-        <p class="section-sub">
-          Quelques commandes de base pour te donner une idée.  
-          La liste complète est disponible avec <code>/help</code> directement sur Discord.
-        </p>
-        <div class="commands">
-          <div class="cmd">
-            <div class="cmd-name">/setup</div>
-            <div class="cmd-desc">Guide interactif pour configurer le bot étape par étape sur ton serveur.</div>
-          </div>
-          <div class="cmd">
-            <div class="cmd-name">/welcome config</div>
-            <div class="cmd-desc">Configurer le salon, le message et le style des messages de bienvenue.</div>
-          </div>
-          <div class="cmd">
-            <div class="cmd-name">/mod logs</div>
-            <div class="cmd-desc">Définir le salon où seront envoyés les logs de modération.</div>
-          </div>
-          <div class="cmd">
-            <div class="cmd-name">/level panel</div>
-            <div class="cmd-desc">Afficher les niveaux, l’XP et les rôles associés.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="support">
-        <h2 class="section-title">Support & contact</h2>
-        <p class="section-sub">
-          Un problème, une idée de fonctionnalité, un bug à signaler ?  
-          Passe sur le serveur support ou contacte le développeur.
-        </p>
-        <div class="pill-row">
-          <a class="pill" href="https://discord.gg/TON_SERVEUR" target="_blank">💬 Serveur support</a>
-          <span class="pill">👨‍💻 Dev : @TonPseudo</span>
-          <span class="pill">📨 Modmail intégré</span>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <span>© <span id="year"></span> Ton Bot Discord — Tous droits réservés.</span>
-      <span>Non affilié à Discord Inc.</span>
-    </footer>
+  <div class="card">
+    <h2>Dernière mise à jour</h2>
+    <p><strong>Version :</strong> 1.4.2</p>
+    <p><strong>Nouveautés :</strong> Système de logs amélioré, interface de ticket plus claire, optimisation des permissions.</p>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="card">
+    <h2>Statut & Fonctionnalités</h2>
+    <p><strong>Statut :</strong> 🟢 En ligne</p>
+    <ul>
+      <li>Création automatique de tickets</li>
+      <li>Logs complets des demandes</li>
+      <li>Gestion du staff et permissions intelligentes</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  © 2026 TicketTac — Tous droits réservés.
+</footer>
+
 </body>
 </html>
